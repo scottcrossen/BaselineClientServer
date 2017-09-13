@@ -12,4 +12,10 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /var/cache/oracle-jdk8-installer
 
-WORKDIR /
+COPY docker-entrypoint.sh /
+
+WORKDIR "/"
+USER user
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD []

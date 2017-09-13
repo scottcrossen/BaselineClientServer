@@ -2,17 +2,21 @@ version: '2'
 services:
   client:
     build:
-      context: client/
+      context: jvm/
     volumes:
-      - ../client:/app
+      - ../client/:/app
   server:
     build:
-      context: server/
+      context: jvm/
     volumes:
       - ../server/:/app
-  ubermaven:
+  maven-client:
     build:
-      context: ubermaven/
+      context: maven/
     volumes:
-      - ../:/app
-      - ./ubermaven/pom.xml:/app/pom.xml:ro
+      - ../client:/app
+  maven-server:
+    build:
+      context: maven/
+    volumes:
+      - ../server:/app
