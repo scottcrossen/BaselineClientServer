@@ -1,0 +1,18 @@
+version: '2'
+services:
+  client:
+    build:
+      context: client/
+    volumes:
+      - ../client:/app
+  server:
+    build:
+      context: server/
+    volumes:
+      - ../server/:/app
+  ubermaven:
+    build:
+      context: ubermaven/
+    volumes:
+      - ../:/app
+      - ./ubermaven/pom.xml:/app/pom.xml:ro
