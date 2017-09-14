@@ -5,13 +5,13 @@ A simple docker client/server setup
 ### Description
 
 This repository is maintained in Java and designed as a simple demonstration of client/server communication. It's purpose is
-to handle string processing on the server instead of on client methods.
+to handle string processing on the server instead of on the client (where it is normally put).
 There are two main classes that this project focuses on: One of the name StringProcessorProxyNormal and the other of
 the name StringProcessorProxyCommand. Both defer normal string processing to the server. The former demonstrates classical
 controller methods and the latter demonstrates the command-pattern method.
 
 This project has docker containers for both the client and the backend in addition to a maven container. Both the client and
-server containers are composed with a generic java platform. Major services are containerized using
+server containers are composed of a generic java platform. Major services are containerized using
 docker's \'docker-compose\' cluster management.
 
 Many of the files contained in this repository also fullfill some of the requirements for the BYU course titled CS 340. It is written and maintained by Scott Leland Crossen.
