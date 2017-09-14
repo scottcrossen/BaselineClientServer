@@ -17,7 +17,9 @@
                     <touchFile>target/classes/watcher.txt</touchFile>
                     <watches>
                         <watch>
-                            <directory>/app/src</directory>
+                            <directory>client</directory>
+                            <directory>server</directory>
+                            <directory>common</directory>
                         </watch>
                     </watches>
                     <goals>
@@ -32,17 +34,45 @@
                 <version>2.1</version>
                 <executions>
                     <execution>
+                        <id>client</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <artifactSet>
+                              <excludes>
+                                <exclude>server/**</exclude>
+                              </excludes>
+                            </artifactSet>
                             <transformers>
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>main.Main</mainClass>
                                 </transformer>
                             </transformers>
+                            <finalName>client</finalName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>server</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                              <excludes>
+                                <exclude>client/**</exclude>
+                              </excludes>
+                            </artifactSet>
+                            <transformers>
+                                <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>main.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                            <finalName>server</finalName>
                         </configuration>
                     </execution>
                 </executions>

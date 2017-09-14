@@ -8,7 +8,7 @@ function finish {
 trap 'finish' SIGTERM
 
 failed="0"
-java -jar app/target/*.jar &
+java -jar app/target/${JAR_NAME} &
 pid=$!
 
 wait

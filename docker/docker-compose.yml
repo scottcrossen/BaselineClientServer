@@ -4,25 +4,23 @@ services:
     build:
       context: jvm/
     volumes:
-      - ../client/:/app
+      - ../source/:/app
     restart: on-failure
+    environment:
+      - JAR_NAME=client.jar
     links:
       - server
   server:
     build:
       context: jvm/
     volumes:
-      - ../server/:/app
+      - ../source/:/app
+    environment:
+      - JAR_NAME=server.jar
     restart: on-failure
-  maven-client:
+  maven:
     build:
       context: maven/
     volumes:
-      - ../client:/app
-    restart: on-failure
-  maven-server:
-    build:
-      context: maven/
-    volumes:
-      - ../server:/app
+      - ../source:/app
     restart: on-failure
