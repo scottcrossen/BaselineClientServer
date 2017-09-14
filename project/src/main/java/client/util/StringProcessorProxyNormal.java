@@ -3,6 +3,10 @@ package client.util;
 import client.communicator.ClientCommunicator;
 import common.structures.Result;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class StringProcessorProxyNormal {
   private static StringProcessorProxyNormal instance = null;
 

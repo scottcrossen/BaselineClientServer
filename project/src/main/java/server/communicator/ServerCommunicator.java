@@ -5,6 +5,10 @@ import java.net.*;
 import com.sun.net.httpserver.*;
 import server.communicator.controllers.*;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class ServerCommunicator {
 
 	private static final int MAX_WAITING_CONNECTIONS = 12;

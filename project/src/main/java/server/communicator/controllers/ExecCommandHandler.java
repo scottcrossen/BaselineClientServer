@@ -8,6 +8,10 @@ import common.util.Serializer;
 import common.structures.Result;
 import common.command.ICommand;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class ExecCommandHandler implements HttpHandler {
 
 	private static final Serializer serializer = Serializer.getInstance();

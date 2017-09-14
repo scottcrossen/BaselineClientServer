@@ -5,6 +5,10 @@ import java.net.*;
 import common.util.Serializer;
 import common.structures.Result;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class ClientCommunicator {
 
 	private static final String serverHost = "server";

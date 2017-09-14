@@ -7,6 +7,10 @@ import common.util.StringProcessor;
 import common.util.Serializer;
 import common.structures.Result;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class ToLowerCaseHandler implements HttpHandler {
 
 	private static final Serializer serializer = Serializer.getInstance();

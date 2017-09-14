@@ -1,5 +1,9 @@
 package common.util;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class StringProcessor {
   private static StringProcessor instance = null;
 
@@ -15,7 +19,7 @@ public class StringProcessor {
   public String toLowerCase(String input) {
     return input.toLowerCase();
   }
-  
+
   public String trim(String input) {
     return input.trim();
   }

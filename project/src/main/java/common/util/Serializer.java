@@ -4,6 +4,10 @@ import common.structures.Result;
 import common.command.ICommand;
 import java.io.*;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class Serializer {
   private static Serializer instance = null;
 

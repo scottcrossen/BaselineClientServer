@@ -4,6 +4,10 @@ import client.util.StringProcessorProxyNormal;
 import client.util.StringProcessorProxyCommand;
 import java.util.concurrent.TimeUnit;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class Main {
 
   private static StringProcessorProxyNormal stringProcessorProxyNormal = StringProcessorProxyNormal.getInstance();

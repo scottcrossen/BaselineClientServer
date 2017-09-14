@@ -4,6 +4,10 @@ import client.communicator.ClientCommunicator;
 import common.structures.Result;
 import common.command.*;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class StringProcessorProxyCommand {
   private static StringProcessorProxyCommand instance = null;
 
@@ -26,7 +30,7 @@ public class StringProcessorProxyCommand {
       throw result.error;
     }
   }
-  
+
   public String trim(String input) throws Exception {
     Result result = clientCommunicator.post("/execCommand", new TrimCommand(input));
     if (result.success) {

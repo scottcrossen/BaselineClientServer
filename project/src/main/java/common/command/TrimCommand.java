@@ -4,6 +4,10 @@ import common.util.StringProcessor;
 import common.structures.Result;
 import java.io.Serializable;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class TrimCommand implements ICommand, Serializable {
 
   public static CommandTypes type = CommandTypes.TRIM;

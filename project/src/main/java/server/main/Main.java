@@ -3,6 +3,10 @@ package server.main;
 import server.communicator.ServerCommunicator;
 import java.util.concurrent.TimeUnit;
 
+/**
+* @author Scott Leland Crossen
+* @Copyright 2017 Scott Leland Crossen
+*/
 public class Main {
     public static void main(String[] args) {
       boolean fail = false;
