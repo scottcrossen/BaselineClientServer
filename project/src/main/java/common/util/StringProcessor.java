@@ -15,9 +15,11 @@ public class StringProcessor {
   public String toLowerCase(String input) {
     return input.toLowerCase();
   }
+  
   public String trim(String input) {
     return input.trim();
   }
+
   public Integer parseInteger(String input) {
     return Integer.parseInt(input);
   }

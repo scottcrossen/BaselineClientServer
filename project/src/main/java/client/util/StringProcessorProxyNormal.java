@@ -3,14 +3,14 @@ package client.util;
 import client.communicator.ClientCommunicator;
 import common.structures.Result;
 
-public class StringProcessorProxy {
-  private static StringProcessorProxy instance = null;
+public class StringProcessorProxyNormal {
+  private static StringProcessorProxyNormal instance = null;
 
-  protected StringProcessorProxy(){}
+  protected StringProcessorProxyNormal(){}
 
-  public static StringProcessorProxy getInstance() {
+  public static StringProcessorProxyNormal getInstance() {
     if (instance == null) {
-      instance = new StringProcessorProxy();
+      instance = new StringProcessorProxyNormal();
     }
     return instance;
   }
@@ -25,6 +25,7 @@ public class StringProcessorProxy {
       throw result.error;
     }
   }
+
   public String trim(String input) throws Exception {
     Result result = clientCommunicator.post("/trim", input);
     if (result.success) {
@@ -33,6 +34,7 @@ public class StringProcessorProxy {
       throw result.error;
     }
   }
+
   public Integer parseInteger(String input) throws Exception {
     Result result = clientCommunicator.post("/parseInteger", input);
     if (result.success) {

@@ -1,7 +1,7 @@
 package common.util;
 
 import common.structures.Result;
-import common.command.Command;
+import common.command.ICommand;
 import java.io.*;
 
 public class Serializer {
@@ -22,9 +22,9 @@ public class Serializer {
     out.flush();
   }
 
-  public static Command readCommand(InputStream is) throws IOException, ClassNotFoundException {
+  public static ICommand readCommand(InputStream is) throws IOException, ClassNotFoundException {
     ObjectInputStream in = new ObjectInputStream(is);
-    Command object = (Command) in.readObject();
+    ICommand object = (ICommand) in.readObject();
     in.close();
     return object;
   }

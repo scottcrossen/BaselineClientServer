@@ -4,8 +4,13 @@ import java.io.*;
 import java.net.*;
 import com.sun.net.httpserver.*;
 import common.util.StringProcessor;
+import common.util.Serializer;
+import common.structures.Result;
+import common.command.ICommand;
 
 public class ExecCommandHandler implements HttpHandler {
+
+	private static final Serializer serializer = Serializer.getInstance();
 
 	@Override
 	public void handle(HttpExchange exchange) throws IOException {
@@ -15,13 +20,15 @@ public class ExecCommandHandler implements HttpHandler {
 		try {
 			if (exchange.getRequestMethod().toLowerCase().equals("post")) {
 
-				String reqData = readString(exchange.getRequestBody());
-				System.out.println("Processing string \'" + reqData + "\'");
-				Integer respData = StringProcessor.getInstance().parseInteger(reqData);
+				ICommand reqCommand = serializer.getInstance().readCommand(exchange.getRequestBody());
+				System.out.println("Processing command \'" + reqCommand.getType() + "\'");
+
+				Result result = reqCommand.execute();
+
 				exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
 
 				OutputStream respBody = exchange.getResponseBody();
-				writeInt(respData, respBody);
+				serializer.write(respBody, result);
 				respBody.close();
 
 				success = true;
@@ -33,6 +40,10 @@ public class ExecCommandHandler implements HttpHandler {
 			}
 		}
 		catch (IOException e) {
+			exchange.sendResponseHeaders(HttpURLConnection.HTTP_SERVER_ERROR, 0);
+			exchange.getResponseBody().close();
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			exchange.sendResponseHeaders(HttpURLConnection.HTTP_SERVER_ERROR, 0);
 			exchange.getResponseBody().close();
 			e.printStackTrace();
