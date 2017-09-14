@@ -9,7 +9,6 @@ services:
       - server
     environment:
       - JAR_NAME=app/target/client.jar
-    restart: on-failure
   server:
     build:
       context: jvm/
@@ -17,10 +16,8 @@ services:
       - ../project/:/app
     environment:
       - JAR_NAME=app/target/server.jar
-    restart: on-failure
   maven:
     build:
       context: maven/
     volumes:
       - ../project:/app
-    restart: on-failure
