@@ -20,7 +20,7 @@ docker's \'docker-compose\' cluster management.
 To start your *Ticket To Ride* server:
 1. Make sure that the program 'docker-compose' is installed on your machine.
 2. Clone this repository
-3. Navigate to the 'Docker' Folder
+3. Navigate to the 'docker' Folder
 4. Use the command ```docker-compose up``` to start the cluster
 5. Additionally, you can attach to individual containers with the command ```docker-compose exec [container_name] bash```
 
