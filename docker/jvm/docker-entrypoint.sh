@@ -8,7 +8,7 @@ function finish {
 trap 'finish' SIGTERM
 
 failed="0"
-while [ $failed -lt 10 ]; do echo "Restarting JVM..."; java -jar app/target/*.jar || failed=$[$failed+1]; sleep 15; done &
+java -jar app/target/*.jar &
 pid=$!
 
 wait

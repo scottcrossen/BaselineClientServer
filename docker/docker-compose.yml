@@ -5,18 +5,24 @@ services:
       context: jvm/
     volumes:
       - ../client/:/app
+    restart: on-failure
+    links:
+      - server
   server:
     build:
       context: jvm/
     volumes:
       - ../server/:/app
+    restart: on-failure
   maven-client:
     build:
       context: maven/
     volumes:
       - ../client:/app
+    restart: on-failure
   maven-server:
     build:
       context: maven/
     volumes:
       - ../server:/app
+    restart: on-failure

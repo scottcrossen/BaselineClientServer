@@ -7,7 +7,7 @@ function finish {
 trap 'finish' SIGTERM
 
 cd /app
-cat | mvn clean install fizzed-watcher:run &
+mvn clean install fizzed-watcher:run &
 pid=$!
 
 wait
