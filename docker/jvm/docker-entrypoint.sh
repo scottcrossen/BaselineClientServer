@@ -2,6 +2,7 @@
 set -e
 
 function finish {
+	kill $PID
 	kill $pid
 }
 

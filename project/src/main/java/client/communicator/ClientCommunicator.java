@@ -22,7 +22,7 @@ public class ClientCommunicator {
 		return serializer.readResult(http.getInputStream());
 	}
 
-	public static Result post(String urlSuffix, String requestInfo) throws IOException, ClassNotFoundException {
+	public static Result post(String urlSuffix, Serializable object) throws IOException, ClassNotFoundException {
 		URL url = new URL("http://" + serverHost + ":" + serverPort + urlSuffix);
 		HttpURLConnection http = (HttpURLConnection)url.openConnection();
 
@@ -31,9 +31,8 @@ public class ClientCommunicator {
 		http.addRequestProperty("Accept", "application/json");
 		http.connect();
 
-		String reqData = requestInfo;
 		OutputStream reqBody = http.getOutputStream();
-		serializer.write(reqBody, reqData);
+		serializer.write(reqBody, object);
 		reqBody.close();
 
 		return serializer.readResult(http.getInputStream());

@@ -21,11 +21,8 @@ public class ServerCommunicator {
 		System.out.println("Initializing HTTP Server");
 
 		try {
-			server = HttpServer.create(
-						new InetSocketAddress(Integer.parseInt(portNumber)),
-						MAX_WAITING_CONNECTIONS);
-		}
-		catch (IOException e) {
+			server = HttpServer.create(new InetSocketAddress(Integer.parseInt(portNumber)), MAX_WAITING_CONNECTIONS);
+		} catch (IOException e) {
 			e.printStackTrace();
 			return;
 		}
@@ -33,6 +30,8 @@ public class ServerCommunicator {
 		server.setExecutor(null);
 
 		System.out.println("Creating contexts");
+
+		server.createContext("/execCommand", new ExecCommandHandler());
 
 		server.createContext("/parseInteger", new ParseIntHandler());
 
